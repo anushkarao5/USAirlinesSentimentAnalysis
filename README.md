@@ -68,13 +68,13 @@ Many models cannot handle text data as it is. Therefore we must convert the word
 - Let's take a simple corpus with three sentences that we would like to vectorize:
 
 <p align="center">
-  <img src="Images/mini_corpus.png" alt="Image Alt Text" width="800px" height="auto">
+  <img src="Images/mini_corpus.png" alt="Image Alt Text" width="500px" height="auto">
 </p>
 
 We can use the count vectorizer function from sklearn to produce a one-hot encoded data frame with the rows as sentences in the corpus and the columns as the unique words in the corpus.
 
 <p align="center">
-  <img src="Images/BOW.png" alt="Image Alt Text" width="800px" height="auto">
+  <img src="Images/BOW.png" alt="Image Alt Text" width="500px" height="auto">
 </p>
 
 Now each tweet is a vector of 0s and 1s. Now we can feed these vectors into our models. 
@@ -89,7 +89,7 @@ Now each tweet is a vector of 0s and 1s. Now we can feed these vectors into our 
 Since this involves a slightly more complex calculation, I will not be going into detail about it here. However, if you are interested in learning more about TFIDF, click here. 
 
 <p align="center">
-  <img src="Images/TFIDF.png" alt="Image Alt Text" width="800px" height="auto">
+  <img src="Images/TFIDF.png" alt="Image Alt Text" width="500px" height="auto">
 </p>
 
 This is how we would represent each sentence in the corpus using TFIDF scores. As we can see, words that are important to a specific document have a higher score: example "cats" for document 1, "dogs" for document 2, and "coolest" for document 3. Words that appear in all documents like "are" have the lowest scores.
