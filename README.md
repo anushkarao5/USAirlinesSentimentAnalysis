@@ -47,13 +47,13 @@ Among all airlines, the distribution of tweets across the classes is imbalanced.
 - However, since we will begin with non-neural network machine learning models, we will thoroughly preprocess the text before inputting it into our model
 
 <p align="center">
-  <img src="Images/pre_function.png" alt="Image Alt Text" width="700px" height="auto">
+  <img src="Images/pre_function.png" alt="Image Alt Text" width="800px" height="auto">
 </p>
 
 Our preprocessor function cleans HTML tags, removes handles and URLs, strips punctuation, removes stop words, and stems words. 
 
 <p align="center">
-  <img src="Images/pre_exm_tweet.png" alt="Image Alt Text" width="600px" height="auto">
+  <img src="Images/pre_exm_tweet.png" alt="Image Alt Text" width="800px" height="auto">
 </p>
 
 An example of how our preprocessor function works when applied to a tweet. We can think of this step as making the text cleaner before vectorization.
