@@ -38,5 +38,9 @@ As we can see there are far more instances of negative tweets than of positive a
 
 Among all airlines, the distribution of tweets across the classes is imbalanced. A majority of the reviews are negative. 
 
+## Text Preprocessing 
+
+
+
 **README in progress**
 
