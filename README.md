@@ -5,6 +5,11 @@ Access the full notebook [here](https://colab.research.google.com/drive/1OGGfLQ9
 ## Table of Contents:
 - [Project Objectives](#project-objective)
 - [Project Outcomes](#project-outcomes)
+- [Understanding-the-Data](#understanding-the-data)
+- [Text Preprocessing](#text-preprocessing)
+- [Text Vectorization](#text-vectorization)
+- [Evaluation Metrics](#evaluation-metrics)
+- [Modeling with Non NN Models](#modeling-with-non-nn-models)
 
 ## Project Objectives: 
 The objectives of this project are to:
