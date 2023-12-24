@@ -60,5 +60,40 @@ An example of how our preprocessor function works when applied to a tweet. We ca
 
 ## Text Vectorization 
 
+Many models cannot handle text data as it is. Therefore we must convert the words into vectors of numbers that the model can interpret. There are several ways we can do this. For non NN models, we will use Bag of Words and TFIDF Vectorization. Later, for the NNs, we will discuss alternative word vectorization options.
+
+**Bag of Words Vectorization**
+- Each unique word is represented as a feature, and each tweet is represented as a row
+- We put a 1 if the word is present in the tweet, and a 0 if the word is not present (one-hot encoding for text)
+- Let's take a simple corpus with three sentences that we would like to vectorize:
+
+<p align="center">
+  <img src="Images/mini_corpus.png" alt="Image Alt Text" width="800px" height="auto">
+</p>
+
+We can use the count vectorizer function from sklearn to produce a one-hot encoded data frame with the rows as sentences in the corpus and the columns as the unique words in the corpus.
+
+<p align="center">
+  <img src="Images/BOW.png" alt="Image Alt Text" width="800px" height="auto">
+</p>
+
+Now each tweet is a vector of 0s and 1s. Now we can feed these vectors into our models. 
+
+**TFIDF Vectorization**
+
+- Term frequency-inverse document frequency
+- The basic idea: the more times a given term appears in a document (a particular sentence), the more important the word is to understand the document
+- At the same time, terms that appear in almost every document are likely not important in understanding a specific document
+- TF-IDF factors in both of these concerns
+
+Since this involves a slightly more complex calculation, I will not be going into detail about it here. However, if you are interested in learning more about TFIDF, click here. 
+
+<p align="center">
+  <img src="Images/TFIDF.png" alt="Image Alt Text" width="800px" height="auto">
+</p>
+
+This is how we would represent each sentence in the corpus using TFIDF scores. As we can see, words that are important to a specific document have a higher score: example "cats" for document 1, "dogs" for document 2, and "coolest" for document 3. Words that appear in all documents like "are" have the lowest scores.
+
+
 **README in progress**
 
