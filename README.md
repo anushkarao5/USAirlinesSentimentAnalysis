@@ -26,13 +26,6 @@ The objectives of this project are to:
 - This data was taken from Kaggle’s Twitter US Airline Sentiment dataset. 
 - The dataset consists of 14,640 Twitter reviews of 6 various airlines. Each of the reviews is labeled as positive, negative, or neutral.
 
-
-<p align="center">
-  <img src="Images/SentDist.png" alt="Image Alt Text" width="200px" height="auto"/>
-  <img src="Images/sentdistperairline.png" alt="Image Alt Text" width="200px" height="auto"/>
-</p>
-
-
 <p align="center">
   <img src="Images/SentDist.png" alt="Image Alt Text" width="500px" height="auto">
 </p>
@@ -44,10 +37,6 @@ As we can see there are far more instances of negative tweets than of positive a
 </p>
 
 Among all airlines, the distribution of tweets across the classes is imbalanced. A majority of the reviews are negative. 
-j
-
-
-
 
 **README in progress**
 
