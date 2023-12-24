@@ -86,7 +86,7 @@ Now each tweet is a vector of 0s and 1s. Now we can feed these vectors into our 
 - At the same time, terms that appear in almost every document are likely not important in understanding a specific document
 - TF-IDF factors in both of these concerns
 
-Since this involves a slightly more complex calculation, I will not be going into detail about it here. However, if you are interested in learning more about TFIDF, click here. 
+Since this involves a slightly more complex calculation, I will not be going into detail about it here. However, if you are interested in learning more about TFIDF, click [here](https://colab.research.google.com/drive/1OGGfLQ9Ur6fyCHWXKFHErDpGFFXi0vXX#scrollTo=4c1665d4). 
 
 <p align="center">
   <img src="Images/TFIDF.png" alt="Image Alt Text" width="500px" height="auto">
