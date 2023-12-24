@@ -58,5 +58,7 @@ Our preprocessor function cleans HTML tags, removes handles and URLs, strips pun
 
 An example of how our preprocessor function works when applied to a tweet. We can think of this step as making the text cleaner before vectorization.
 
+## Text Vectorization 
+
 **README in progress**
 
