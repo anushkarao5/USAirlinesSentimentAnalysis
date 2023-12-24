@@ -29,10 +29,10 @@ The objectives of this project are to:
 
 <p align="center">
   <div style="display: inline-block; margin-right: 20px;">
-    <img src="Images/SentDist.png" alt="Image Alt Text" width="500px" height="auto">
+    <img src="Images/SentDist.png" alt="Image Alt Text" width="200px" height="auto">
   </div>
   <div style="display: inline-block;">
-    <img src="Images/sentdistperairline.png" alt="Image Alt Text" width="500px" height="auto">
+    <img src="Images/sentdistperairline.png" alt="Image Alt Text" width="200px" height="auto">
   </div>
 </p>
 
