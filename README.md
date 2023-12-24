@@ -26,6 +26,17 @@ The objectives of this project are to:
 - This data was taken from Kaggle’s Twitter US Airline Sentiment dataset. 
 - The dataset consists of 14,640 Twitter reviews of 6 various airlines. Each of the reviews is labeled as positive, negative, or neutral.
 
+
+<p align="center">
+  <div style="display: inline-block; margin-right: 20px;">
+    <img src="Images/SentDist.png" alt="Image Alt Text" width="500px" height="auto">
+  </div>
+  <div style="display: inline-block;">
+    <img src="Images/sentdistperairline.png" alt="Image Alt Text" width="500px" height="auto">
+  </div>
+</p>
+
+
 <p align="center">
   <img src="Images/SentDist.png" alt="Image Alt Text" width="500px" height="auto">
 </p>
