@@ -307,9 +307,7 @@ We will rank our models using the embeddings that lead to the highest minority r
 
 </details>
 
-## Conclusions
-
-1) LSTM (67%)
+2) LSTM (67%)
 
 <details>
 <summary>Click to expand</summary>
@@ -330,6 +328,124 @@ We will rank our models using the embeddings that lead to the highest minority r
 
 It is also interesting to note that CNN with GloVe not only had the highest macro average recall but also the highest macro average precision. This is different than our best performer in the non NN model. Logistic regression had the highest macro average recall but the lowest macro average precision.
 
+## Conclusions
+
+<p align="center">
+  <img src="Images/recall_all_models.png" alt="Image Alt Text" width="900px" height="auto">
+</p>
+
+Ranked 
+1) Logistic regression (CV) (75%)
+2) Simple CNN (GloVe) (68.3%)
+3) Simple LSTM (GloVe) (67.5%)
+4) Simple FFNN (W2V) (64.2%)
+5) Support Vector Classifier (CV) (60%)
+5) XGB (58.8%)
+7) Multinomial Naive Bayes (56.3%)
+8) Random Forest (54.2%)
+
+**Which text vectorization techniques are most effective?**
+
+<details>
+  <summary>Click to Expand</summary>
+
+- CV outperformed TFIDF in almost all non NN models. This is likely because CV always captures the presence or absence of all words, while TFIDF may downweight important words if they appear more often.
+- GloVe outperformed Word2Vec in almost all models. GloVe was pre-trained on a much larger corpus, so more complex relationships could have been learned. GloVe also looks at the global context of the word instead of the word in the context of a specific window (Word2Vec).
+
+</details>
+
+
+**Which models are best for sentiment classification?**
+
+<details>
+  <summary>Click to Expand</summary>
+
+Model Performance Ranked (using the best vectorizer for each)
+
+
+1) Logistic Regression (CV)
+
+
+
+
+2) CNN (GloVe)
+
+
+
+
+3) LSTM (GloVe)
+
+
+
+
+4) SNN (GloVe or Word2Vec)
+
+
+
+
+5) SVC (CV)
+
+
+
+
+6) XGB (CV)
+
+
+
+
+7) MNB (CV)
+
+
+
+
+8) RF (CV)
+
+
+
+
+- Logistics regression using both TF IDF and CV outperforms all models. Why could this be? As mentioned earlier, LR is a linear model that assumes a linear relationship between the input features and the output features. If our sentiment classes are linearly separable, which might be the case given how well LR performed, then LR’s simple linear decision boundary might prove most effective.
+  - Moreover, the soft decision boundary, which allows the model to express how likely each of the classes are for a given tweet, allows the model to acknowledge that a tweet can have characteristics of several classes. This can reduce the bias of simply assigning many tweets to the majority class.
+- NN are fierce competitors. This is no surprise. The rich word embeddings likely gave them a competitive edge. Moreover, NNs specialize in capturing sequential dependencies and local patterns, making them better at picking up the order and context of words.
+- Weak Tree based classifiers:
+  - XGBoost and Random Forest may have underperformed because there were not enough samples from the minority classes to build representative trees with.
+- Multinomial Naive Bayes: MNB likely underperformed due to the assumption that the presence of a certain word is independent of other words in the tweet given the class label. This is likely not the case in SA, where word order and context is critical.
+
+
+Overall, logistic regression and NNs are the best classifiers.
+
+It is important to remember that intensive hyperparameter tuning may completely change the order the models performed in. However, this notebook is meant to give an idea of how many popular models approach sentiment classification.
+
+
+</details>
+
+
+
+
+**Why did neural networks outperform most non NN models?**
+
+<details>
+  <summary>Click to Expand</summary>
+
+- Quality of embeddings: Making a direct comparison between NN models and non NN models can be difficult because we used different vectorization techniques for NN models and non NN models. It is possible that the quality of the word embedding we used in our NN models led to better results. GloVe and Word2Vec both look at the semantic relationship between words while CV and TFIDF do not.
+- Handling imbalanced data: In our traditional models, we passed in class_weights='balanced' to handle the imbalanced data, which upgrades the loss function to penalize misclassifications of the minority classes.
+- However, in our NNs, we used an oversampling technique called SMOTE, which created more instances from the minority class. We did this mostly because we wanted to create more data, as NN can perform poorly when they are trained on less data. Still, this could have affected our performance.
+- NN and sequential learning: In text analysis, order and context of words matter. (ex: "Max loves maya" is not the same as "Maya loves Max"). NNs, especially LSTMs and CNNs, are designed to capture sequential dependencies and local patterns in text data, which helps them capture the order and context of words. This can make them better suited for text classification than non NN models, which do not look at this.
+
+
+</details>
+
+
+**Application**
+
+
+<details>
+  <summary>Click to Expand</summary>
+
+Our best sentiment classifier has 75% macro average recall and 70% precision. This is not bad, especially given how imbalanced our sentiment classes were. This logistic regression SA classification model can be used when brands quickly want to gauge public sentiment towards their company. This data can then be filtered by class so that brands can draw insights from recurrent trends in each class.
+
+
+
+</details>
 
 
 
