@@ -23,7 +23,7 @@ The objectives of this project are to:
 
 ## Understanding the Data
 
-- This data was taken from Kaggle’s Twitter US Airline Sentiment dataset. 
+- This data was taken from [Kaggle’s Twitter US Airline Sentiment](https://www.kaggle.com/datasets/crowdflower/twitter-airline-sentiment) dataset. 
 - The dataset consists of 14,640 Twitter reviews of 6 various airlines. Each of the reviews is labeled as positive, negative, or neutral.
 
 <p align="center">
