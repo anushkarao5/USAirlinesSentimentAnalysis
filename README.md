@@ -266,9 +266,9 @@ To learn why CV outperformed TFIDF for most models, click [here](https://colab.r
 - GloVe differs from word2vec as it aims to capture the global context of a word rather than just the local context, which we specified earlier in the W2V model with the windows parameters (how many words to look at before and after the target word).
 
 We explore three simple neural networks.
-- Feed Forward: 2 dense layers, 1 softmax layer 
-- Simple CNN: 1 conv1D layer, 1 max pooling layer, 1 dense layer, 1 softmax layer
-- Simple LSTM: 1 bidirectional LSTM layer, 1 max pooling, 1 dense, 1 softmax
+- [Feed Forward](https://colab.research.google.com/drive/1OGGfLQ9Ur6fyCHWXKFHErDpGFFXi0vXX#scrollTo=7ce3db5a): 2 dense layers, 1 softmax layer(
+- [Simple CNN](https://colab.research.google.com/drive/1OGGfLQ9Ur6fyCHWXKFHErDpGFFXi0vXX#scrollTo=d57978bc): 1 conv1D layer, 1 max pooling layer, 1 dense layer, 1 softmax layer
+- [Simple LSTM](https://colab.research.google.com/drive/1OGGfLQ9Ur6fyCHWXKFHErDpGFFXi0vXX#scrollTo=6619f0bb): 1 bidirectional LSTM layer, 1 max pooling, 1 dense, 1 softmax
 
 After training the models, we compare the metrics. Again we look at the recall in each of the classes and the average recall in the minority classes. 
 
