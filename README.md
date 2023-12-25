@@ -447,7 +447,3 @@ Our best sentiment classifier has 75% macro average recall and 70% precision. Th
 
 </details>
 
-
-
-**README in progress**
-
