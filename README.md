@@ -95,7 +95,123 @@ Since this involves a slightly more complex calculation, I will not be going int
 This is how we would represent each sentence in the corpus using TFIDF scores. As we can see, words that are important to a specific document have a higher score: example "cats" for document 1, "dogs" for document 2, and "coolest" for document 3. Words that appear in all documents like "are" have the lowest scores.
 
 ## Evaluation Metrics
-We evaluate the performance of our classifiers using accuracy, precision, and recall. Since our dataset is dominated by negative tweets, our model will likely have the best recall in the negative class. However, our most important metric is the recall in the minority classes- neutral and positive classes. We want a model that is best able to recognize these tweets even with a limited number of instances to learn from. 
+We evaluate the performance of our classifiers using accuracy, precision, and recall. Since our dataset is dominated by negative tweets, our model will likely have the best recall in the negative class. **However, our most important metric is the recall in the minority classes- neutral and positive classes.** We want a model that is best able to recognize these tweets even with a limited number of instances to learn from. 
+
+## Modeling with Non NN Models
+For our non neural networks, we use the following models: 
+
+**Multinomial Logistic Regression**
+<details>
+  <summary> More info </summary>
+
+- Multinomial logistic regression uses softmax coding, an extension of the logistic function, to calculate the probability that a tweet falls into each sentiment class:
+
+<div style="display: flex; justify-content: center; align-items: center; height: 300px;">
+  <img src="https://drive.google.com/uc?id=1GrdlRXTxgsZitMkPMrDIs8BIx7cQ2zzd" width="300">
+</div>
+
+- The softmax coding function, where:
+  - K= total number of classes (3) in our case
+  - x= input features of a particular tweet (the BOW or TFIDF vector)
+  - Pr(Y=k|X=x): the probability that a tweet falls into a class k given the tweet’s input features
+  - bk0,bk1,....: coefficients associated with the kth class
+    - The coefficients for each class are found by maximizing the maximum likelihood function
+- We calculate:
+  - Pr(Y = positive | X = input features of a tweet)
+  - Pr(Y = neutral | X = input features of a tweet )
+  - Pr(Y = negative | X = input features of a tweet)
+- The three probabilities should sum to 1 (probability distribution over the sentiment classes for a given tweet)
+-  We assign the tweet to the class which has the highest probability
+- Image source:
+James, Gareth, et al. An Introduction to Statistical Learning: With Applications in R. Springer, 2021. pg 141, 4.13
+
+</details>
+
+ **Multinomial Naive Bayes**
+<details>
+  <summary> More info </summary>
+
+- Multinomial naive bayes use Bayes theorem to calculate the probabilities that a tweet falls into each class. It then assigns the tweet to the class with the highest probability.
+
+<div style="display: flex; justify-content: center; align-items: center; height: 300px;">
+  <img src="https://drive.google.com/uc?id=1NMI2sjm--MFseMOGNMTMurxghqOIRLAY" width="300">
+</div>
+
+- From Bayes theorem, where:
+  - Pr (Y=k | X=x): probability that the tweets falls into a certain class k given the input features
+  - πk: prior probability of a tweet falling into class k
+  - f_k(x): Pr(X | Y=k): The likelihood of observing feature vector x given class k
+- **In MNB, we make the assumption that within a certain class, the p predictors are independent (the words within a certain class are independent)**
+- This makes calculating f_k(x) much easier. Instead of computing the joint probability of all the words in a tweet given a class, we take the product of the individual probabilities of observing a word given the class:
+  - f_k(x)= Pr ( word 1 | class k ) * Pr ( word 2 | class k ) *  Pr ( word 3 | class k )
+    - We calculate this value separately for all classes
+- We substitute these values into the Bayes theorem formula, calculating
+  - Pr ( Y = negative | X= tweet)
+  - Pr ( Y= neutral | X= tweet)
+  - Pr ( Y= positive | X = tweet)
+- We assign the tweet to the class with the highest probability
+
+- Image source:
+James, Gareth, et al. An Introduction to Statistical Learning: With Applications in R. Springer, 2021. pg 142, 4.15
+
+</details>
+
+ **Support Vector Classifier**
+<details>
+  <summary> More info </summary>
+
+- Support Vector Classifier works by transforming vectorized tweets into points in a higher-dimensional space
+- SVC aims to find a decision boundary in this space that separates the vectorized tweets into their respective sentiment classes
+- The SVC decision boundary ( a hyperplane) maximumes the margin, or the distance between the decision boundary and the support vectors
+- Support vectors are the points closest to the decision boundary that play an important role in deciding where the decision boundary lies
+- When making new predictions, we transform the vectorized tweet into the high dimensional space and make the classification based on where the point lies relative to the hyperplane
+
+</details>
+
+ **Random Forest Classifier**
+<details>
+  <summary> More info </summary>
+
+- The Random Forest Classifier works by combining the predictions of multiple decision trees to make a final prediction
+- Each decision tree is built from bootstrapped samples (random sampling with replacement of the tweets from the original data set) using a random subset of features (words)
+
+<div style="display: flex; justify-content: center; align-items: center; height: 300px;">
+  <img src="https://drive.google.com/uc?id=1azTNX_LapR3NhFzeJv3pBdNg1YTsW_yr" width="300">
+</div>
+
+
+- Exmp: suppose this decision tree is created from one bootstrapped sample of our data and a handful of random features ("okay", "happy", "angry")
+- Each tree makes a prediction on where the observation goes
+    - Suppose the observation is “It was okay”
+    - We simply fall down the decision tree for this bootstrapped sample and land on Neutral
+- We do this for all the decision trees
+- “Vote” on which class our tweet falls in by choosing the class that most trees voted on
+- This example is an extremely simplified version using bag of words vectorization.
+- In the real model, the tweets have already been vectorized, and there are many more splitting nodes. This example still provides decent intuition.
+
+</details>
+
+
+ **XGB Classifier**
+
+<details>
+
+  <summary> More info </summary>
+
+- XGBoost classification is another type of ensemble, tree-based model that combines multiple decision trees to create a stronger classifier
+- XGBoost makes an initial prediction for each tweet, and then builds decision trees iteratively, prioritizing correcting prior misclassification
+- The idea is that each iterative tree should have a lower misclassification rate.
+- XGBoost combines predictions from  all trees to make a final prediction on the sentiment of a tweet.
+
+
+
+</details>
+
+
+
+
+
+
 
 **README in progress**
 
