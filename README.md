@@ -94,6 +94,17 @@ Since this involves a slightly more complex calculation, I will not be going int
 
 This is how we would represent each sentence in the corpus using TFIDF scores. As we can see, words that are important to a specific document have a higher score: example "cats" for document 1, "dogs" for document 2, and "coolest" for document 3. Words that appear in all documents like "are" have the lowest scores.
 
+### Main takeaways
+
+**Which text vectorization techniques are most effective?**
+
+<details>
+  <summary>Click to Expand</summary>
+
+- CV outperformed TFIDF in almost all non NN models. This is likely because CV always captures the presence or absence of all words, while TFIDF may downweight important words if they appear more often.
+- GloVe outperformed Word2Vec in almost all models. GloVe was pre-trained on a much larger corpus, so more complex relationships could have been learned. GloVe also looks at the global context of the word instead of the word in the context of a specific window (Word2Vec).
+
+</details>
 
 **README in progress**
 
