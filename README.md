@@ -209,7 +209,7 @@ James, Gareth, et al. An Introduction to Statistical Learning: With Applications
 
 - After evaluating the model’s performance using default parameters, we begin hyperparameter tuning. 
 - We train each of the tuned models and compare the metrics.
-- 
+
 <p align="center">
   <img src="Images/non_nn_recall.png" alt="Image Alt Text" width="900px" height="auto">
 </p>
