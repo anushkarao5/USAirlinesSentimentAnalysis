@@ -11,6 +11,7 @@ Access the full notebook [here](https://colab.research.google.com/drive/1OGGfLQ9
 - [Evaluation Metrics](#evaluation-metrics)
 - [Modeling with Non NN Models](#modeling-with-non-nn-models)
 - [Modeling with NN Models](#modeling-with-nn-models)
+- [Conclusions](#conclusions)
 
 ## Project Objectives: 
 The objectives of this project are to:
@@ -305,6 +306,8 @@ We will rank our models using the embeddings that lead to the highest minority r
 - Not capturing noise: Since CNN'S focus primarily on local patterns in the data, they are less likely to capture irrelevant patterns than models like LSTM, which can remember these patterns for a while.
 
 </details>
+
+## Conclusions
 
 1) LSTM (67%)
 
