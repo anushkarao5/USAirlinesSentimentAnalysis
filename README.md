@@ -256,11 +256,11 @@ To learn why CV outperformed TFIDF for most models, click [here](https://colab.r
 - For our neural networks, we want to represent these tweets with dense vectors, or vectors that have very little 0s.
 - We will explore two dense vectorization techniques, Word2Vec and GloVe.
 
-*Word to Vec*
+*[Word to Vec](https://colab.research.google.com/drive/1OGGfLQ9Ur6fyCHWXKFHErDpGFFXi0vXX#scrollTo=865fe8bc)*
 - Word2Vec uses a two-layer simple neural network to vectorize words
 - Each word is represented as a vector, and a word vector's relative position to another word vector suggests its semantic meaning. For example, we would expect the word vector for "happy" to be close to the word vector for "joyful".
 
-*GloVe*
+*[GloVe](https://colab.research.google.com/drive/1OGGfLQ9Ur6fyCHWXKFHErDpGFFXi0vXX#scrollTo=dea91442)*
 - Another popular type of dense vector word embedding in the GloVe pre-trained word embeddings. The GloVe word embeddings have already been pretrained on a large corpus. Based on the user's choice, the vectors that represent each word can be 50, 100, or 200 numbers. We will use 100 numbers.
 - Similar to Word2Vec, word vectors in the vector space that are close to each other have similar semantic meanings.
 - GloVe differs from word2vec as it aims to capture the global context of a word rather than just the local context, which we specified earlier in the W2V model with the windows parameters (how many words to look at before and after the target word).
