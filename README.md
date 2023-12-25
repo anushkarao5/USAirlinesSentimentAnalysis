@@ -281,6 +281,19 @@ After training the models, we compare the metrics. Again we look at the recall i
 </p>
 
 **Ranking Model Performance**
+
+<details>
+<summary>Why did GloVe embeddings result in better performance?</summary>
+
+Our GloVe embeddings performed better than the Word2Vec embeddings. Why could this be?
+- Limited training size:
+  - We trained our Word2Vec model on a data set of limited size. It is likely that the model did not have enough data to accurately recognize patterns between words.
+  - The GloVe embeddings come pre-trained on an enormous corpus, so the word embeddings are likely more representative of the words.
+- Semantic Relationships in global context
+  - GloVe embeddings are known to better be able to capture semantic relationships between words as the word co-occurrences are considered in the global realm.
+
+</details>
+
 We will rank our models using the embeddings that lead to the highest minority recall. It is important to note that our models performed very similarly. Let us understand why our models performed the way they did.
 
 1) CNN (68%)
