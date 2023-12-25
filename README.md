@@ -242,7 +242,9 @@ It is important to note that only Logistic Regression performed significantly be
 
 </details>
 
+To learn more about model performance for the other models, click [here](https://colab.research.google.com/drive/1OGGfLQ9Ur6fyCHWXKFHErDpGFFXi0vXX#scrollTo=un5UTXf_XQ2w). 
 
+To learn why CV outperformed TFIDF for most models, click [here](https://colab.research.google.com/drive/1OGGfLQ9Ur6fyCHWXKFHErDpGFFXi0vXX#scrollTo=DvQ0wcoTW7Et). 
 
 **README in progress**
 
