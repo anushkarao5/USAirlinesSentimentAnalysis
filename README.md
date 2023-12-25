@@ -281,6 +281,8 @@ After training the models, we compare the metrics. Again we look at the recall i
 </p>
 
 **Ranking Model Performance**
+We will rank our models using the embeddings that lead to the highest minority recall. It is important to note that our models performed very similarly. Let us understand why our models performed the way they did.
+
 1) CNN (68%)
 
 <details>
