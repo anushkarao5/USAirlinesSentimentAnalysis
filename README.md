@@ -203,7 +203,8 @@ James, Gareth, et al. An Introduction to Statistical Learning: With Applications
 - The idea is that each iterative tree should have a lower misclassification rate.
 - XGBoost combines predictions from  all trees to make a final prediction on the sentiment of a tweet.
 
-
+- After evaluating the model’s performance using default parameters, we begin hyperparameter tuning. 
+- We train each of the tuned models and compare the metrics. 
 
 </details>
 
