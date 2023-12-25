@@ -208,14 +208,14 @@ James, Gareth, et al. An Introduction to Statistical Learning: With Applications
 - After evaluating the model’s performance using default parameters, we begin hyperparameter tuning. 
 - We train each of the tuned models and compare the metrics. 
 <p align="center">
-  <img src="Images/non_nn_recall.png" alt="Image Alt Text" width="500px" height="auto">
+  <img src="Images/non_nn_recall.png" alt="Image Alt Text" width="700px" height="auto">
 </p>
 
 - As expected, all classifiers have the highest recall in the negative class. Some classifiers like MNB with CV have twice the recall in the negative class compared to the neutral and positive classes. Other classifiers like logistic regression using CV have a more even distribution.
 
 - For a more definite metric, we find the average recall in the positive and neutral classes. 
 <p align="center">
-  <img src="Images/non_nn_avg_recall.png" alt="Image Alt Text" width="500px" height="auto">
+  <img src="Images/non_nn_avg_recall.png" alt="Image Alt Text" width="700px" height="auto">
 </p>
 
 We will evaluate the models based on their average recall in the minority classes, choosing the version of each model (CV or TFIDF) that performed best after hyperparameter tuning.
