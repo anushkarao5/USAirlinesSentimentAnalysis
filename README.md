@@ -10,6 +10,7 @@ Access the full notebook [here](https://colab.research.google.com/drive/1OGGfLQ9
 - [Text Vectorization](#text-vectorization)
 - [Evaluation Metrics](#evaluation-metrics)
 - [Modeling with Non NN Models](#modeling-with-non-nn-models)
+- [Modeling with NN Models](#modeling-with-nn-models)
 
 ## Project Objectives: 
 The objectives of this project are to:
@@ -246,6 +247,8 @@ It is important to note that only Logistic Regression performed significantly be
 To learn more about model performance for the other models, click [here](https://colab.research.google.com/drive/1OGGfLQ9Ur6fyCHWXKFHErDpGFFXi0vXX#scrollTo=un5UTXf_XQ2w). 
 
 To learn why CV outperformed TFIDF for most models, click [here](https://colab.research.google.com/drive/1OGGfLQ9Ur6fyCHWXKFHErDpGFFXi0vXX#scrollTo=DvQ0wcoTW7Et). 
+
+## Modeling with NN Models
 
 **README in progress**
 
