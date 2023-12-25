@@ -203,14 +203,44 @@ James, Gareth, et al. An Introduction to Statistical Learning: With Applications
 - The idea is that each iterative tree should have a lower misclassification rate.
 - XGBoost combines predictions from  all trees to make a final prediction on the sentiment of a tweet.
 
-- After evaluating the model’s performance using default parameters, we begin hyperparameter tuning. 
-- We train each of the tuned models and compare the metrics. 
-
 </details>
 
+- After evaluating the model’s performance using default parameters, we begin hyperparameter tuning. 
+- We train each of the tuned models and compare the metrics. 
+<p align="center">
+  <img src="Images/non_nn_recall.png" alt="Image Alt Text" width="500px" height="auto">
+</p>
+
+- As expected, all classifiers have the highest recall in the negative class. Some classifiers like MNB with CV have twice the recall in the negative class compared to the neutral and positive classes. Other classifiers like logistic regression using CV have a more even distribution.
+
+- For a more definite metric, we find the average recall in the positive and neutral classes. 
+<p align="center">
+  <img src="Images/non_nn_avg_recall.png" alt="Image Alt Text" width="500px" height="auto">
+</p>
+
+We will evaluate the models based on their average recall in the minority classes, choosing the version of each model (CV or TFIDF) that performed best after hyperparameter tuning.
+
+1) Logistic Regression (CV) 74%
+2) Support Vector Classifier (CV) (60%) 
+3) XGB (TFIDF) (59%) 
+4) MNB (CV) (56%) 
+5) RF (CV) (54%) 
+
+It is important to note that only Logistic Regression performed significantly better than the other models (15% increase from the next-best model). All the other models performed similarly, with a maximum difference between the models being 6% (between SVC and RF).
 
 
+<details>
 
+  <summary> Why did LR outperform all other models? </summary>
+
+- Soft Decision boundaries to identify minority classes:
+  - LR uses soft decision boundaries to separate classes. What does this mean? Instead of making a strict decision of where a tweet belongs, LR computes a probability score for the tweet belonging in each of the classes. It then selected the class with the highest probability.
+  - This allows the model to express uncertainty and acknowledge that some tweets have characteristics of multiple classes.
+  - This can be advantageous because it reduces the bias towards the majority class. Instead of favoring the majority class due to class imbalance, the model will assign probabilities to all the classes, making it better equipped to handle complex relationships in the imbalanced data. This can lead to higher recall in minority classes.
+- Potential Linear Separability:
+  - In some instances, sentiment classes can be separated using linear decision boundaries, which logistic regression automatically assumes. Given the high recall in the minority classes, the sentiment classes may be linearly separable.
+
+</details>
 
 
 
