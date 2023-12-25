@@ -249,6 +249,71 @@ To learn more about model performance for the other models, click [here](https:/
 To learn why CV outperformed TFIDF for most models, click [here](https://colab.research.google.com/drive/1OGGfLQ9Ur6fyCHWXKFHErDpGFFXi0vXX#scrollTo=DvQ0wcoTW7Et). 
 
 ## Modeling with NN Models
+**Word Embeddings**
+
+- Previously, we used count vectorizer and TFIDF to vectorize our tweets. Both these techniques result in sparse vectors representing each tweet. Sparse vectors are vectors that are predominantly filled with 0s.
+- This form of representation works fairly well with traditional machine learning models but is not always effective with neural networks, which are designed to handle dense inputs.
+- For our neural networks, we want to represent these tweets with dense vectors, or vectors that have very little 0s.
+- We will explore two dense vectorization techniques, Word2Vec and GloVe.
+
+*Word to Vec*
+- Word2Vec uses a two-layer simple neural network to vectorize words
+- Each word is represented as a vector, and a word vector's relative position to another word vector suggests its semantic meaning. For example, we would expect the word vector for "happy" to be close to the word vector for "joyful".
+
+*GloVe*
+- Another popular type of dense vector word embedding in the GloVe pre-trained word embeddings. The GloVe word embeddings have already been pretrained on a large corpus. Based on the user's choice, the vectors that represent each word can be 50, 100, or 200 numbers. We will use 100 numbers.
+- Similar to Word2Vec, word vectors in the vector space that are close to each other have similar semantic meanings.
+- GloVe differs from word2vec as it aims to capture the global context of a word rather than just the local context, which we specified earlier in the W2V model with the windows parameters (how many words to look at before and after the target word).
+
+We explore three simple neural networks.
+- Feed Forward: 2 dense layers, 1 softmax layer 
+- Simple CNN: 1 conv1D layer, 1 max pooling layer, 1 dense layer, 1 softmax layer
+- Simple LSTM: 1 bidirectional LSTM layer, 1 max pooling, 1 dense, 1 softmax
+
+After training the models, we compare the metrics. Again we look at the recall in each of the classes and the average recall in the minority classes. 
+
+<p align="center">
+  <img src="Images/nn_recall.png" alt="Image Alt Text" width="900px" height="auto">
+</p>
+
+<p align="center">
+  <img src="Images/nn_avg_recall.png" alt="Image Alt Text" width="900px" height="auto">
+</p>
+
+**Ranking Model Performance**
+1) CNN (68%)
+
+<details>
+<summary>Click to expand</summary>
+
+- Local Pattern Recognition: CNNS are well-suited for detecting local patterns and features in data because of their ability to look at data in windows. These local patterns and combinations of words or phrases could inform us about the specific sentiments.
+- Not capturing noise: Since CNN'S focus primarily on local patterns in the data, they are less likely to capture irrelevant patterns than models like LSTM, which can remember these patterns for a while.
+
+</details>
+
+1) LSTM (67%)
+
+<details>
+<summary>Click to expand</summary>
+
+- Memory: LSTM’s memory cells allow the model to retain information over longer sequences. LSTMS can remember important information from earlier in a tweet which can help with the understanding of the entire tweet. While this can make them prone to overfitting, it can often be advantageous in text analysis problems, where we want to retain bits of information throughout the text.
+- Combining Information: Since LSTMs are able to retain memory, they can combine important information from earlier in a tweet with later information to make a more holistic decision.
+
+</details>
+
+3) SNN (64%)
+
+<details>
+<summary>Click to expand</summary>
+
+- While SNNs are not always the first choice for sentiment analysis, it is possible that the quality of the word embeddings, in both Word2Vec and GloVe, allowed the model to learn the complex relationships between words and the sentiment classes.
+
+</details>
+
+It is also interesting to note that CNN with GloVe not only had the highest macro average recall but also the highest macro average precision. This is different than our best performer in the non NN model. Logistic regression had the highest macro average recall but the lowest macro average precision.
+
+
+
 
 **README in progress**
 
